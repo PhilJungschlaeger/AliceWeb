@@ -61,12 +61,16 @@
       });
 
       // On first click (or tap on mobile), trigger fullscreen
-      document.querySelector("#unity-canvas").addEventListener("click", function () {
-        if (isFirstClick) {
-            toggleFullscreen();
-            isFirstClick = false;
-        }
-      });
+      // On first click or tap, trigger fullscreen
+      document.querySelector("#unity-canvas").addEventListener("click", handleFullscreen);
+      document.querySelector("#unity-canvas").addEventListener("touchstart", handleFullscreen);
+
+      function handleFullscreen() {
+          if (isFirstClick) {
+              toggleFullscreen();
+              isFirstClick = false;
+          }
+      }
 
       // Listen for fullscreen change events to handle Escape key
       document.addEventListener("fullscreenchange", handleFullscreenChange);
@@ -86,6 +90,10 @@
             canvas.webkitRequestFullscreen();
         }
       }
+
+      // On first click or tap, trigger fullscreen
+      document.querySelector("#unity-canvas").addEventListener("click", handleFullscreen);
+      document.querySelector("#unity-canvas").addEventListener("touchstart", handleFullscreen);
 
       function handleFullscreenChange() {
         if (!document.fullscreenElement &&    // alternative standard method
