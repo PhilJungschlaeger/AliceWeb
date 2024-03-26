@@ -48,7 +48,7 @@
         document.body.style.textAlign = "left";
       }*/
       // Ensure canvas fills the screen on mobile devices
-      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+     /* if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
           var canvas = document.querySelector("#unity-canvas");
           var container = document.getElementById("unity-container");
           container.style.position = "fixed";
@@ -58,7 +58,7 @@
           canvas.style.height = "100%";
           canvas.style.display = "block";
           canvas.style.margin = "auto";
-      }
+      }*/
       unityInstance = createUnityInstance(document.querySelector("#unity-canvas"), {
         dataUrl: "Build/Webbuild.data.unityweb",
         frameworkUrl: "Build/Webbuild.framework.js.unityweb",
