@@ -18,6 +18,12 @@
             height: 100vh;
             background: #231F20;
         }
+
+        @media screen and (orientation: landscape) {
+            body {
+                display: none; /* Hide content when in landscape mode */
+            }
+        }
     </style>
 </head>
 <body style="text-align: center;">
@@ -52,6 +58,9 @@
         document.addEventListener("mozfullscreenchange", handleFullscreenChange);
         document.addEventListener("webkitfullscreenchange", handleFullscreenChange);
         document.addEventListener("msfullscreenchange", handleFullscreenChange);
+
+        // Lock orientation to portrait mode
+        lockOrientation();
     }
 
     function toggleFullscreen() {
@@ -71,6 +80,12 @@
         if (!document.fullscreenElement &&    // alternative standard method
             !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {  // current working methods
             isFirstClick = true; // Reset isFirstClick when exiting fullscreen
+        }
+    }
+
+    function lockOrientation() {
+        if (screen.orientation && screen.orientation.lock) {
+            screen.orientation.lock('portrait');
         }
     }
 
