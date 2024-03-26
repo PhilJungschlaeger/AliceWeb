@@ -59,20 +59,22 @@
         matchWebGLToCanvasSize: true, // Uncomment this to separately control WebGL canvas render size and DOM element size.
         // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
       });
+
       // On first click (or tap on mobile), trigger fullscreen
       document.querySelector("#unity-canvas").addEventListener("click", function () {
-            if (isFirstClick) {
-                toggleFullscreen();
-                isFirstClick = false;
-            }
-        });
+        if (isFirstClick) {
+            toggleFullscreen();
+            isFirstClick = false;
+        }
+      });
 
-        // Listen for fullscreen change events to handle Escape key
-        document.addEventListener("fullscreenchange", handleFullscreenChange);
-        document.addEventListener("mozfullscreenchange", handleFullscreenChange);
-        document.addEventListener("webkitfullscreenchange", handleFullscreenChange);
-        document.addEventListener("msfullscreenchange", handleFullscreenChange);
-        function toggleFullscreen() {
+      // Listen for fullscreen change events to handle Escape key
+      document.addEventListener("fullscreenchange", handleFullscreenChange);
+      document.addEventListener("mozfullscreenchange", handleFullscreenChange);
+      document.addEventListener("webkitfullscreenchange", handleFullscreenChange);
+      document.addEventListener("msfullscreenchange", handleFullscreenChange);
+
+      function toggleFullscreen() {
         var canvas = document.querySelector("#unity-canvas");
         if (canvas.requestFullscreen) {
             canvas.requestFullscreen();
@@ -83,14 +85,14 @@
         } else if (canvas.webkitRequestFullscreen) {
             canvas.webkitRequestFullscreen();
         }
-    }
+      }
 
-    function handleFullscreenChange() {
+      function handleFullscreenChange() {
         if (!document.fullscreenElement &&    // alternative standard method
             !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {  // current working methods
             isFirstClick = true; // Reset isFirstClick when exiting fullscreen
         }
-    }
+      }
     </script>
   </body>
 </html>
