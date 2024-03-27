@@ -54,12 +54,21 @@
         });
 
         // On first click (or tap on mobile), trigger fullscreen
-        document.querySelector("#unity-canvas").addEventListener("click", function () {
-            if (isFirstClick) {
-                toggleFullscreen();
-                isFirstClick = false;
-            }
-        });
+        canvas.addEventListener("click", handleFullscreen);
+        canvas.addEventListener("touchstart", handleFullscreen);
+        var body = document.querySelector("#body");
+        body.addEventListener("click", handleFullscreen);
+        body.addEventListener("touchstart", handleFullscreen);
+
+      function handleFullscreen() {
+          if (isFirstClick) {
+              toggleFullscreen();
+              isFirstClick = false;
+              console.debug("handle Fullscreen");
+          }else{
+            console.debug("not handle Fullscreen");
+          }
+      }
 
         // Listen for fullscreen change events to handle Escape key
         document.addEventListener("fullscreenchange", handleFullscreenChange);
