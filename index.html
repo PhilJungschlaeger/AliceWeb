@@ -32,10 +32,10 @@
         // Mobile device style: fill the whole browser client area with the game canvas:
         var meta = document.createElement('meta');
         meta.name = 'viewport';
-        meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
+        meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no';//, shrink-to-fit=yes';
         document.getElementsByTagName('head')[0].appendChild(meta);
-        document.body.style.textAlign = "left";
-        canvas.style.position = "fixed";
+        //document.body.style.textAlign = "left";
+        //canvas.style.position = "fixed";
     }
 
     var unityInstance;
@@ -56,9 +56,7 @@
         // On first click (or tap on mobile), trigger fullscreen
         canvas.addEventListener("click", handleFullscreen);
         canvas.addEventListener("touchstart", handleFullscreen);
-        var body = document.querySelector("#body");
-        body.addEventListener("click", handleFullscreen);
-        body.addEventListener("touchstart", handleFullscreen);
+        
 
       function handleFullscreen() {
           if (isFirstClick) {
