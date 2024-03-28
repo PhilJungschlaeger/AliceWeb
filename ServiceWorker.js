@@ -1,9 +1,9 @@
 const cacheName = "minuseins-wonderland-0.1";
 const contentToCache = [
-    "Build/Webbuild.loader.js",
-    "Build/Webbuild.framework.js.unityweb",
-    "Build/Webbuild.data.unityweb",
-    "Build/Webbuild.wasm.unityweb",
+    "Build/WebbuildPWA.loader.js",
+    "Build/WebbuildPWA.framework.js.unityweb",
+    "Build/WebbuildPWA.data.unityweb",
+    "Build/WebbuildPWA.wasm.unityweb",
     "TemplateData/style.css"
 
 ];
